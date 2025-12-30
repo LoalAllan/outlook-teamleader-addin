@@ -1,0 +1,328 @@
+/* ============================================
+   TEAMLEADER OFFERTE ADD-IN - STYLING
+   ============================================ */
+
+/* CSS Variabelen - Pas deze aan voor je eigen kleuren */
+:root {
+    /* Hoofdkleuren */
+    --primary-color: #0066cc;
+    --primary-hover: #0052a3;
+    --primary-light: #e6f0fa;
+    
+    /* Status kleuren */
+    --success-color: #107c10;
+    --success-bg: #dff6dd;
+    --error-color: #d13438;
+    --error-bg: #fde7e9;
+    
+    /* Neutrale kleuren */
+    --text-dark: #323130;
+    --text-medium: #605e5c;
+    --text-light: #a19f9d;
+    --border-color: #edebe9;
+    --bg-light: #faf9f8;
+    
+    /* Schaduwen */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+    
+    /* Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-dark);
+    background-color: #ffffff;
+    min-height: 100vh;
+}
+
+/* Container */
+.container {
+    padding: 20px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+header {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 24px;
+}
+
+header h1 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+}
+
+.subtitle {
+    font-size: 13px;
+    color: var(--text-medium);
+}
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+main {
+    flex: 1;
+}
+
+/* Form groep */
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-group > label {
+    display: block;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+/* Radio knoppen groep */
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Individuele radio optie */
+.radio-option {
+    display: flex;
+    align-items: center;
+    padding: 14px 16px;
+    background: var(--bg-light);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.radio-option:hover {
+    border-color: var(--primary-color);
+    background: var(--primary-light);
+}
+
+/* Verberg de echte radio button */
+.radio-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Custom radio button cirkel */
+.radio-custom {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--text-light);
+    border-radius: 50%;
+    margin-right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+    flex-shrink: 0;
+}
+
+/* Geselecteerde staat */
+.radio-option input[type="radio"]:checked + .radio-custom {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.radio-option input[type="radio"]:checked + .radio-custom::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+}
+
+.radio-option input[type="radio"]:checked ~ .radio-label {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Radio label tekst */
+.radio-label {
+    font-size: 15px;
+    color: var(--text-dark);
+    transition: all 0.15s ease;
+}
+
+/* ============================================
+   EMAIL INFO BOX
+   ============================================ */
+.email-info {
+    background: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    margin-bottom: 24px;
+}
+
+.info-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 12px;
+}
+
+.info-row:last-child {
+    margin-bottom: 0;
+}
+
+.info-label {
+    font-size: 12px;
+    color: var(--text-medium);
+    font-weight: 500;
+}
+
+.info-value {
+    font-size: 14px;
+    color: var(--text-dark);
+    word-break: break-word;
+}
+
+/* ============================================
+   UPLOAD BUTTON
+   ============================================ */
+.btn-primary {
+    width: 100%;
+    padding: 16px 20px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.15s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+.btn-primary:disabled {
+    background: var(--text-light);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.btn-icon {
+    font-size: 18px;
+}
+
+/* ============================================
+   STATUS MESSAGE
+   ============================================ */
+.status-message {
+    margin-top: 20px;
+    padding: 14px 16px;
+    border-radius: var(--radius-md);
+    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+    animation: slideIn 0.3s ease;
+}
+
+.status-message.success {
+    background: var(--success-bg);
+    color: var(--success-color);
+    border: 1px solid var(--success-color);
+}
+
+.status-message.error {
+    background: var(--error-bg);
+    color: var(--error-color);
+    border: 1px solid var(--error-color);
+}
+
+.status-message.loading {
+    background: var(--primary-light);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Animatie voor status bericht */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+    margin-top: auto;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.version {
+    font-size: 11px;
+    color: var(--text-light);
+}
+
+/* ============================================
+   LOADING SPINNER (optioneel)
+   ============================================ */
+.spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
